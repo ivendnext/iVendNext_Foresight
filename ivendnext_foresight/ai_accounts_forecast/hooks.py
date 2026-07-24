@@ -137,7 +137,7 @@ def on_account_created(doc, method):
     """Handle new account creation"""
     try:
         # Check if auto-forecasting is enabled for new accounts
-        auto_forecast_enabled = frappe.db.get_single_value("AI Financial Settings", "auto_forecast_new_accounts")
+        auto_forecast_enabled = frappe.db.get_single_value("AI Financial Settings", "auto_create_forecasts")
         
         if auto_forecast_enabled and not doc.is_group:
             # Create initial forecast for the new account
